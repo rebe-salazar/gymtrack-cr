@@ -1,2 +1,7 @@
-# gymtrack-cr
-GymTrack CR - Aplicación móvil para la gestión integral de gimnasios desarrollada con FlutterFlow y Firebase.
+# GymTrack CR
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
