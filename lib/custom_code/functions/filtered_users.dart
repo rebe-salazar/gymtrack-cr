@@ -18,12 +18,18 @@ List<UsersRecord> filteredUsers(
   String? searchQueryUsers,
 ) {
   final all = users;
-  final q = searchQueryUsers.toLowerCase();
-  if (q.isEmpty) return all;
+  final q = (searchQueryUsers ?? '').trim().toLowerCase();
+
+  if (q.isEmpty) {
+    return all;
+  }
+
   return all.where((u) {
     final nameMatch = u.name.toLowerCase().contains(q) ||
         u.lastName.toLowerCase().contains(q);
+
     final emailMatch = u.email.toLowerCase().contains(q);
+
     return nameMatch || emailMatch;
   }).toList();
 }

@@ -1,7 +1,7 @@
 import '/components/button/button_widget.dart';
 import '/components/social_button/social_button_widget.dart';
-import '/components/text_field/text_field_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:flutter/material.dart';
 
@@ -16,10 +16,18 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for TextField.
-  late TextFieldModel textFieldModel1;
-  // Model for TextField.
-  late TextFieldModel textFieldModel2;
+  final formKey = GlobalKey<FormState>();
+  // State field(s) for txtCorreoLogin widget.
+  FocusNode? txtCorreoLoginFocusNode;
+  TextEditingController? txtCorreoLoginTextController;
+  String? Function(BuildContext, String?)?
+      txtCorreoLoginTextControllerValidator;
+  // State field(s) for txtContrasenaLogin widget.
+  FocusNode? txtContrasenaLoginFocusNode;
+  TextEditingController? txtContrasenaLoginTextController;
+  late bool txtContrasenaLoginVisibility;
+  String? Function(BuildContext, String?)?
+      txtContrasenaLoginTextControllerValidator;
   // Model for Button.
   late ButtonModel buttonModel;
   // Model for SocialButton.
@@ -29,8 +37,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void initState(BuildContext context) {
-    textFieldModel1 = createModel(context, () => TextFieldModel());
-    textFieldModel2 = createModel(context, () => TextFieldModel());
+    txtContrasenaLoginVisibility = false;
     buttonModel = createModel(context, () => ButtonModel());
     socialButtonModel1 = createModel(context, () => SocialButtonModel());
     socialButtonModel2 = createModel(context, () => SocialButtonModel());
@@ -38,8 +45,12 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
-    textFieldModel1.dispose();
-    textFieldModel2.dispose();
+    txtCorreoLoginFocusNode?.dispose();
+    txtCorreoLoginTextController?.dispose();
+
+    txtContrasenaLoginFocusNode?.dispose();
+    txtContrasenaLoginTextController?.dispose();
+
     buttonModel.dispose();
     socialButtonModel1.dispose();
     socialButtonModel2.dispose();

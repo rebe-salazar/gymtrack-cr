@@ -434,49 +434,27 @@ class _RoutineManagementWidgetState extends State<RoutineManagementWidget> {
                                           ),
                                         ],
                                       ),
-                                      if (functions
-                                              .filteredRoutines(
-                                                  columnPaddingRoutinesRecordList
-                                                      .toList())
-                                              .length ==
-                                          0)
-                                        Padding(
-                                          padding: EdgeInsets.all(32.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.inbox_rounded,
-                                                size: 24.0,
-                                              ),
-                                              Text(
-                                                'Nada aún',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      letterSpacing: 0.0,
+                                      Padding(
+                                        padding: EdgeInsets.all(32.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.inbox_rounded,
+                                              size: 24.0,
+                                            ),
+                                            Text(
+                                              'Nada aún',
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -487,17 +465,48 @@ class _RoutineManagementWidgetState extends State<RoutineManagementWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .fontStyle,
-                                                      lineHeight: 1.5,
                                                     ),
-                                              ),
-                                              Text(
-                                                'Las rutinas que agregues aparecerán aquí',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font: GoogleFonts.inter(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                    lineHeight: 1.5,
+                                                  ),
+                                            ),
+                                            Text(
+                                              'Las rutinas que agregues aparecerán aquí',
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -508,109 +517,85 @@ class _RoutineManagementWidgetState extends State<RoutineManagementWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .fontStyle,
+                                                        lineHeight: 1.4,
                                                       ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .fontStyle,
-                                                      lineHeight: 1.4,
-                                                    ),
-                                              ),
-                                            ].divide(SizedBox(height: 16.0)),
-                                          ),
+                                            ),
+                                          ].divide(SizedBox(height: 16.0)),
                                         ),
+                                      ),
 
                                       // ff_lite_listview_data:${filtered_routines}
-                                      if ((functions
-                                                  .filteredRoutines(
-                                                      columnPaddingRoutinesRecordList
-                                                          .toList())
-                                                  .length ==
-                                              0) ==
-                                          false)
-                                        StreamBuilder<List<RoutinesRecord>>(
-                                          stream: queryRoutinesRecord(),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(),
-                                                ),
-                                              );
-                                            }
-                                            List<RoutinesRecord>
-                                                listViewRoutinesRecordList =
-                                                snapshot.data!;
-
-                                            return Builder(
-                                              builder: (context) {
-                                                final item =
-                                                    listViewRoutinesRecordList
-                                                        .toList();
-
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount: item.length,
-                                                  itemBuilder:
-                                                      (context, itemIndex) {
-                                                    final itemItem =
-                                                        item[itemIndex];
-                                                    return RoutineCardWidget(
-                                                      key: Key(
-                                                          'Key824_${itemIndex}_of_${item.length}'),
-                                                      title: valueOrDefault<
-                                                          String>(
-                                                        itemItem.title,
-                                                        'Glúteos y Piernas',
-                                                      ),
-                                                      exercises: valueOrDefault<
-                                                          String>(
-                                                        itemItem.exercisesCount
-                                                            .toString(),
-                                                        '9',
-                                                      ),
-                                                      duration: valueOrDefault<
-                                                          String>(
-                                                        '${valueOrDefault<String>(
-                                                          itemItem
-                                                              .estimatedDuration
-                                                              .toString(),
-                                                          '2',
-                                                        )}horas',
-                                                        '2hrs',
-                                                      ),
-                                                      status: valueOrDefault<
-                                                          String>(
-                                                        itemItem.status,
-                                                        'Glúteos y Piernas',
-                                                      ),
-                                                      clients: '15',
-                                                    );
-                                                  },
-                                                );
-                                              },
+                                      StreamBuilder<List<RoutinesRecord>>(
+                                        stream: queryRoutinesRecord(),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50,
+                                                height: 50,
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              ),
                                             );
-                                          },
-                                        ),
+                                          }
+                                          List<RoutinesRecord>
+                                              listViewRoutinesRecordList =
+                                              snapshot.data!;
+
+                                          return Builder(
+                                            builder: (context) {
+                                              final item =
+                                                  listViewRoutinesRecordList
+                                                      .toList();
+
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                primary: false,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: item.length,
+                                                itemBuilder:
+                                                    (context, itemIndex) {
+                                                  final itemItem =
+                                                      item[itemIndex];
+                                                  return RoutineCardWidget(
+                                                    key: Key(
+                                                        'Key824_${itemIndex}_of_${item.length}'),
+                                                    title:
+                                                        valueOrDefault<String>(
+                                                      itemItem.title,
+                                                      'Glúteos y Piernas',
+                                                    ),
+                                                    exercises:
+                                                        valueOrDefault<String>(
+                                                      itemItem.exercisesCount
+                                                          .toString(),
+                                                      '9',
+                                                    ),
+                                                    duration:
+                                                        valueOrDefault<String>(
+                                                      '${valueOrDefault<String>(
+                                                        itemItem
+                                                            .estimatedDuration
+                                                            .toString(),
+                                                        '2',
+                                                      )}horas',
+                                                      '2hrs',
+                                                    ),
+                                                    status:
+                                                        valueOrDefault<String>(
+                                                      itemItem.status,
+                                                      'Glúteos y Piernas',
+                                                    ),
+                                                    clients: '15',
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
                                     ].divide(SizedBox(height: 16.0)),
                                   ),
                                   Container(

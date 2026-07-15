@@ -510,7 +510,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                     GoRouter.of(context).clearRedirectLocation();
 
                     context.goNamedAuth(
-                        LoginPageWidget.routeName, context.mounted);
+                        AdminDashboardWidget.routeName, context.mounted);
                   },
                   text: 'Salir',
                   options: FFButtonOptions(

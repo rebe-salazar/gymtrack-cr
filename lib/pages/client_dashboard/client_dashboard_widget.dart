@@ -192,6 +192,20 @@ class _ClientDashboardWidgetState extends State<ClientDashboardWidget> {
                               print('IconButton pressed ...');
                             },
                           ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(LoginPageWidget.routeName);
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              color: Color(0xFFB5BCC7),
+                              size: 30.0,
+                            ),
+                          ),
                         ],
                       ),
                       Container(

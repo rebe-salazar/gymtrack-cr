@@ -205,9 +205,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                     shape: BoxShape.rectangle,
                                   ),
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: 0.0,
-                                    height: 0.0,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        width: 0.0,
+                                        height: 0.0,
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                              LoginPageWidget.routeName);
+                                        },
+                                        child: Icon(
+                                          Icons.logout,
+                                          color: Color(0xFF94A0B4),
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],

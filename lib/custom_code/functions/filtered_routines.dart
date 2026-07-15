@@ -13,9 +13,17 @@ import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-List<RoutinesRecord> filteredRoutines(List<RoutinesRecord> routines) {
-  final all = routines;
-  final q = app_local.search_query.toLowerCase();
-  if (q.isEmpty) return all;
-  return all.where((r) => r.title.toLowerCase().contains(q)).toList();
+List<RoutinesRecord> filteredRoutines(
+  List<RoutinesRecord> routines,
+  String? searchQueryRoutines,
+) {
+  final query = (searchQueryRoutines ?? '').trim().toLowerCase();
+
+  if (query.isEmpty) {
+    return routines;
+  }
+
+  return routines.where((routine) {
+    return (routine.title).toLowerCase().contains(query);
+  }).toList();
 }
