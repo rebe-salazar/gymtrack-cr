@@ -599,29 +599,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       1.3,
                                                                 ),
                                                       ),
-                                                      Text(
-                                                        '¿Olvidaste tu contraseña?',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .override(
-                                                                  font:
-                                                                      GoogleFonts
-                                                                          .inter(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          context.pushNamed(
+                                                              ResetPasswordWidget
+                                                                  .routeName);
+                                                        },
+                                                        child: Text(
+                                                          '¿Olvidaste tu contraseña?',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelSmall
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -629,9 +629,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .labelSmall
                                                                       .fontStyle,
-                                                                  lineHeight:
-                                                                      1.2,
                                                                 ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmall
+                                                                    .fontStyle,
+                                                                lineHeight: 1.2,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
@@ -1086,29 +1099,93 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: wrapWithModel(
-                                                  model:
-                                                      _model.socialButtonModel1,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: SocialButtonWidget(
-                                                    icon:
-                                                        'https://cdn.simpleicons.org/google/374151.svg',
-                                                    label: 'Google',
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Próximamente',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: wrapWithModel(
+                                                    model: _model
+                                                        .socialButtonModel1,
+                                                    updateCallback: () =>
+                                                        safeSetState(() {}),
+                                                    child: SocialButtonWidget(
+                                                      icon:
+                                                          'https://cdn.simpleicons.org/google/374151.svg',
+                                                      label: 'Google',
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                               Expanded(
                                                 flex: 1,
-                                                child: wrapWithModel(
-                                                  model:
-                                                      _model.socialButtonModel2,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: SocialButtonWidget(
-                                                    icon:
-                                                        'https://cdn.simpleicons.org/apple/374151.svg',
-                                                    label: 'Apple',
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Próximamente',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: wrapWithModel(
+                                                    model: _model
+                                                        .socialButtonModel2,
+                                                    updateCallback: () =>
+                                                        safeSetState(() {}),
+                                                    child: SocialButtonWidget(
+                                                      icon:
+                                                          'https://cdn.simpleicons.org/apple/374151.svg',
+                                                      label: 'Apple',
+                                                    ),
                                                   ),
                                                 ),
                                               ),

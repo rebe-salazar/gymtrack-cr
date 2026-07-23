@@ -1,7 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'reset_password_model.dart';
@@ -27,8 +29,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
     super.initState();
     _model = createModel(context, () => ResetPasswordModel());
 
-    _model.emailAddressTextController ??= TextEditingController();
-    _model.emailAddressFocusNode ??= FocusNode();
+    _model.txtCorreoRecuperacionTextController ??= TextEditingController();
+    _model.txtCorreoRecuperacionFocusNode ??= FocusNode();
   }
 
   @override
@@ -203,8 +205,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                 child: Container(
                   width: double.infinity,
                   child: TextFormField(
-                    controller: _model.emailAddressTextController,
-                    focusNode: _model.emailAddressFocusNode,
+                    controller: _model.txtCorreoRecuperacionTextController,
+                    focusNode: _model.txtCorreoRecuperacionFocusNode,
                     autofillHints: [AutofillHints.email],
                     obscureText: false,
                     decoration: InputDecoration(
@@ -299,7 +301,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                     maxLines: null,
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: FlutterFlowTheme.of(context).primary,
-                    validator: _model.emailAddressTextControllerValidator
+                    validator: _model
+                        .txtCorreoRecuperacionTextControllerValidator
                         .asValidator(context),
                   ),
                 ),
@@ -309,8 +312,39 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button-Login pressed ...');
+                    onPressed: () async {
+                      if (_model
+                          .txtCorreoRecuperacionTextController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Email required!',
+                            ),
+                          ),
+                        );
+                        return;
+                      }
+                      await authManager.resetPassword(
+                        email: _model.txtCorreoRecuperacionTextController.text,
+                        context: context,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Si el correo está registrado, recibirás un enlace para restablecer tu contraseña.',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                      if (Navigator.of(context).canPop()) {
+                        context.pop();
+                      }
+                      context.pushNamed(LoginPageWidget.routeName);
                     },
                     text: 'Enviar Link',
                     options: FFButtonOptions(
