@@ -1,31 +1,37 @@
-import '/components/button/button_widget.dart';
-import '/components/text_field/text_field_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'user_management_widget.dart' show UserManagementWidget;
 import 'package:flutter/material.dart';
 
 class UserManagementModel extends FlutterFlowModel<UserManagementWidget> {
+  ///  Local state fields for this page.
+
+  DocumentReference? usuarioSeleccionado;
+
+  String nombreSeleccionado = 'Seleccione un usuario';
+
+  String correoSeleccionado = 'Seleccione un usuario';
+
+  String rolSeleccionado = 'Seleccione un usuario';
+
+  String estadoSeleccionado = 'Seleccione un estado';
+
+  String? textoBusqueda;
+
   ///  State fields for stateful widgets in this page.
 
-  // Model for TextField.
-  late TextFieldModel textFieldModel;
-  // Model for Button.
-  late ButtonModel buttonModel1;
-  // Model for Button.
-  late ButtonModel buttonModel2;
+  // State field(s) for txtFBuscarPorNombre widget.
+  FocusNode? txtFBuscarPorNombreFocusNode;
+  TextEditingController? txtFBuscarPorNombreTextController;
+  String? Function(BuildContext, String?)?
+      txtFBuscarPorNombreTextControllerValidator;
 
   @override
-  void initState(BuildContext context) {
-    textFieldModel = createModel(context, () => TextFieldModel());
-    buttonModel1 = createModel(context, () => ButtonModel());
-    buttonModel2 = createModel(context, () => ButtonModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    textFieldModel.dispose();
-    buttonModel1.dispose();
-    buttonModel2.dispose();
+    txtFBuscarPorNombreFocusNode?.dispose();
+    txtFBuscarPorNombreTextController?.dispose();
   }
 }

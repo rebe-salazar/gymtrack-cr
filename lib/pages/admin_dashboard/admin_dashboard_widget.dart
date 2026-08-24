@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/components/kpi_card/kpi_card_widget.dart';
 import '/components/quick_action/quick_action_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -232,58 +231,34 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                 ),
                               ],
                             ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.goNamed(UserManagementWidget.routeName);
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).onPrimary,
-                                  borderRadius: BorderRadius.circular(16.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 16.0, 24.0, 16.0),
-                                  child: Container(
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.search_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent3,
-                                          size: 20.0,
-                                        ),
-                                        Text(
-                                          'Buscar usuarios, clases o planes...',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.inter(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                                letterSpacing: 0.0,
+                            Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).onPrimary,
+                                borderRadius: BorderRadius.circular(16.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 16.0, 24.0, 16.0),
+                                child: Container(
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.search_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent3,
+                                        size: 20.0,
+                                      ),
+                                      Text(
+                                        'Buscar usuarios, clases o planes...',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -292,11 +267,23 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .fontStyle,
-                                                lineHeight: 1.5,
                                               ),
-                                        ),
-                                      ].divide(SizedBox(width: 16.0)),
-                                    ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent3,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                              lineHeight: 1.5,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(width: 16.0)),
                                   ),
                                 ),
                               ),
@@ -304,153 +291,6 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                           ].divide(SizedBox(height: 24.0)),
                         ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(24.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Resumen de Hoy',
-                          style: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .override(
-                                font: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .fontStyle,
-                                ),
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .fontStyle,
-                                lineHeight: 1.45,
-                              ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: wrapWithModel(
-                                model: _model.kpiCardModel1,
-                                updateCallback: () => safeSetState(() {}),
-                                child: KpiCardWidget(
-                                  icon: Icon(
-                                    Icons.group_rounded,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 20.0,
-                                  ),
-                                  trend: '+12%',
-                                  label: 'Usuarios',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: wrapWithModel(
-                                model: _model.kpiCardModel2,
-                                updateCallback: () => safeSetState(() {}),
-                                child: KpiCardWidget(
-                                  icon: Icon(
-                                    Icons.fitness_center_rounded,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 20.0,
-                                  ),
-                                  trend: 'Estable',
-                                  label: 'Entrenadores',
-                                ),
-                              ),
-                            ),
-                          ].divide(SizedBox(width: 16.0)),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: StreamBuilder<List<ClassesRecord>>(
-                                stream: queryClassesRecord(),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(),
-                                      ),
-                                    );
-                                  }
-                                  List<ClassesRecord> kpiCardClassesRecordList =
-                                      snapshot.data!;
-
-                                  return wrapWithModel(
-                                    model: _model.kpiCardModel3,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: KpiCardWidget(
-                                      icon: Icon(
-                                        Icons.event_available_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 20.0,
-                                      ),
-                                      trend: '+3',
-                                      label: 'Clases Activas',
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: StreamBuilder<List<UserMembershipsRecord>>(
-                                stream: queryUserMembershipsRecord(),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(),
-                                      ),
-                                    );
-                                  }
-                                  List<UserMembershipsRecord>
-                                      kpiCardUserMembershipsRecordList =
-                                      snapshot.data!;
-
-                                  return wrapWithModel(
-                                    model: _model.kpiCardModel4,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: KpiCardWidget(
-                                      icon: Icon(
-                                        Icons.card_membership_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 20.0,
-                                      ),
-                                      trend: '+5%',
-                                      label: 'Membresías',
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ].divide(SizedBox(width: 16.0)),
-                        ),
-                      ].divide(SizedBox(height: 16.0)),
                     ),
                   ),
                   Padding(
@@ -669,18 +509,31 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                               children: [
                                 Expanded(
                                   flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.quickActionModel1,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: QuickActionWidget(
-                                      tapAction: 'navigate(user_management)',
-                                      icon: Icon(
-                                        Icons.person_add_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (Navigator.of(context).canPop()) {
+                                        context.pop();
+                                      }
+                                      context.pushNamed(
+                                          UserManagementWidget.routeName);
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.quickActionModel1,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: QuickActionWidget(
+                                        tapAction: 'navigate(user_management)',
+                                        icon: Icon(
+                                          Icons.person_add_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        label: 'Usuarios',
                                       ),
-                                      label: 'Usuarios',
                                     ),
                                   ),
                                 ),

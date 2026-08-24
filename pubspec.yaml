@@ -52,7 +52,6 @@ dependencies:
   fl_chart: 1.0.0
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
-  flutter_shaders: 0.1.3
   flutter_svg: 2.1.0
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
@@ -65,7 +64,6 @@ dependencies:
   google_sign_in_web: 0.12.4+4
   intl: 0.20.2
   json_path: 0.7.2
-  material_palette: 1.6.0
   page_transition: 2.1.0
   path_provider: 2.1.4
   path_provider_android: 2.2.10
@@ -126,9 +124,6 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  shaders:
-    - packages/material_palette/shaders/fbm_gradient.frag
-
   assets:
     - assets/fonts/
     - assets/images/
