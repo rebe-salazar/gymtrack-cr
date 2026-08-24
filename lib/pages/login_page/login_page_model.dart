@@ -1,5 +1,4 @@
 import '/components/button/button_widget.dart';
-import '/components/social_button/social_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
@@ -30,17 +29,11 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
       txtContrasenaLoginTextControllerValidator;
   // Model for Button.
   late ButtonModel buttonModel;
-  // Model for SocialButton.
-  late SocialButtonModel socialButtonModel1;
-  // Model for SocialButton.
-  late SocialButtonModel socialButtonModel2;
 
   @override
   void initState(BuildContext context) {
     txtContrasenaLoginVisibility = false;
     buttonModel = createModel(context, () => ButtonModel());
-    socialButtonModel1 = createModel(context, () => SocialButtonModel());
-    socialButtonModel2 = createModel(context, () => SocialButtonModel());
   }
 
   @override
@@ -52,7 +45,5 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
     txtContrasenaLoginTextController?.dispose();
 
     buttonModel.dispose();
-    socialButtonModel1.dispose();
-    socialButtonModel2.dispose();
   }
 }

@@ -75,15 +75,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? LoginPageWidget()
-          : AdminDashboardWidget(),
+          ? AdminDashboardWidget()
+          : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? LoginPageWidget()
-              : AdminDashboardWidget(),
+              ? AdminDashboardWidget()
+              : LoginPageWidget(),
         ),
         FFRoute(
           name: AdminDashboardWidget.routeName,
@@ -126,19 +126,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => RoutineManagementWidget(),
         ),
         FFRoute(
-          name: SplashScreenWidget.routeName,
-          path: SplashScreenWidget.routePath,
-          builder: (context, params) => SplashScreenWidget(),
-        ),
-        FFRoute(
           name: TrainerDashboardWidget.routeName,
           path: TrainerDashboardWidget.routePath,
           builder: (context, params) => TrainerDashboardWidget(),
-        ),
-        FFRoute(
-          name: UserManagementWidget.routeName,
-          path: UserManagementWidget.routePath,
-          builder: (context, params) => UserManagementWidget(),
         ),
         FFRoute(
           name: UserRegistrationWidget.routeName,
@@ -179,6 +169,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ReportsWidget.routeName,
           path: ReportsWidget.routePath,
           builder: (context, params) => ReportsWidget(),
+        ),
+        FFRoute(
+          name: UserManagementWidget.routeName,
+          path: UserManagementWidget.routePath,
+          builder: (context, params) => UserManagementWidget(),
+        ),
+        FFRoute(
+          name: EditUserWidget.routeName,
+          path: EditUserWidget.routePath,
+          builder: (context, params) => EditUserWidget(
+            usuarioRef: params.getParam(
+              'usuarioRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -349,7 +356,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/adminDashboard';
+            return '/loginPage';
           }
           return null;
         },

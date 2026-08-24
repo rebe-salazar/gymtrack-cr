@@ -12,11 +12,8 @@ export '/pages/physical_progress_profile/physical_progress_profile_widget.dart'
     show PhysicalProgressProfileWidget;
 export '/pages/routine_management/routine_management_widget.dart'
     show RoutineManagementWidget;
-export '/pages/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/pages/trainer_dashboard/trainer_dashboard_widget.dart'
     show TrainerDashboardWidget;
-export '/pages/user_management/user_management_widget.dart'
-    show UserManagementWidget;
 export '/pages/user_registration/user_registration_widget.dart'
     show UserRegistrationWidget;
 export '/pages/user_profile/user_profile_widget.dart' show UserProfileWidget;
@@ -30,3 +27,6 @@ export '/pages/gym_discounts/gym_discounts_widget.dart' show GymDiscountsWidget;
 export '/pages/notifications_page/notifications_page_widget.dart'
     show NotificationsPageWidget;
 export '/pages/reports/reports_widget.dart' show ReportsWidget;
+export '/pages/user_management/user_management_widget.dart'
+    show UserManagementWidget;
+export '/pages/edit_user/edit_user_widget.dart' show EditUserWidget;

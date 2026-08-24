@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/button/button_widget.dart';
-import '/components/social_button/social_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -1021,176 +1020,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                             ),
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: Divider(
-                                                  height: 16.0,
-                                                  thickness: 1.0,
-                                                  indent: 0.0,
-                                                  endIndent: 0.0,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                ),
-                                              ),
-                                              Text(
-                                                'O continúa con',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelSmall
-                                                    .override(
-                                                      font: GoogleFonts.inter(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .onSurface,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelSmall
-                                                              .fontStyle,
-                                                      lineHeight: 1.2,
-                                                    ),
-                                              ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: Divider(
-                                                  height: 16.0,
-                                                  thickness: 1.0,
-                                                  indent: 0.0,
-                                                  endIndent: 0.0,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(width: 16.0)),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Próximamente',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .socialButtonModel1,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child: SocialButtonWidget(
-                                                      icon:
-                                                          'https://cdn.simpleicons.org/google/374151.svg',
-                                                      label: 'Google',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Próximamente',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .socialButtonModel2,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child: SocialButtonWidget(
-                                                      icon:
-                                                          'https://cdn.simpleicons.org/apple/374151.svg',
-                                                      label: 'Apple',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(width: 16.0)),
-                                          ),
                                           Container(
                                             height: 8.0,
                                           ),
@@ -1302,13 +1131,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.help_outline_rounded,
+                                        Icons.check_circle_outline,
                                         color: FlutterFlowTheme.of(context)
                                             .onSurface,
                                         size: 16.0,
                                       ),
                                       Text(
-                                        'Centro de ayuda y soporte',
+                                        'GymTrack CR',
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .override(
