@@ -583,44 +583,29 @@ class _MembershipClassManagementWidgetState
                                               ),
                                             ].divide(SizedBox(width: 16.0)),
                                           ),
-                                          if (_model.activeTab == 'Memberships')
-                                            Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Planes de membresías',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            letterSpacing: 0.0,
+                                          Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    'Planes de membresías',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             fontStyle:
@@ -628,89 +613,46 @@ class _MembershipClassManagementWidgetState
                                                                         context)
                                                                     .titleMedium
                                                                     .fontStyle,
-                                                            lineHeight: 1.45,
                                                           ),
-                                                    ),
-                                                    ButtonWidget(
-                                                      key: Key(
-                                                          'Key473_${columnIndex}_of_${columnClassesRecordList.length}'),
-                                                      icon: Icon(
-                                                        Icons.add_rounded,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 24.0,
-                                                      ),
-                                                      iconPresent: true,
-                                                      iconEndPresent: false,
-                                                      content: 'Nuevo Plan',
-                                                      variant: 'primary',
-                                                      size: 'small',
-                                                      fullWidth: false,
-                                                      loading: false,
-                                                      disabled: false,
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(32.0),
-                                                  child: StreamBuilder<
-                                                      List<MembershipsRecord>>(
-                                                    stream:
-                                                        queryMembershipsRecord(),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
-                                                            child:
-                                                                CircularProgressIndicator(),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<MembershipsRecord>
-                                                          columnMembershipsRecordList =
-                                                          snapshot.data!;
-
-                                                      return Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: List.generate(
-                                                            columnMembershipsRecordList
-                                                                .length,
-                                                            (columnIndex) {
-                                                          final columnMembershipsRecord =
-                                                              columnMembershipsRecordList[
-                                                                  columnIndex];
-                                                          return Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    2.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .inbox_rounded,
-                                                              size: 24.0,
-                                                            ),
-                                                          );
-                                                        }).divide(SizedBox(
-                                                            height: 16.0)),
-                                                      );
-                                                    },
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                          lineHeight: 1.45,
+                                                        ),
                                                   ),
-                                                ),
-
-                                                // ff_lite_listview_data:${memberships.all}
-                                                StreamBuilder<
+                                                  ButtonWidget(
+                                                    key: Key(
+                                                        'Key473_${columnIndex}_of_${columnClassesRecordList.length}'),
+                                                    icon: Icon(
+                                                      Icons.add_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    iconPresent: true,
+                                                    iconEndPresent: false,
+                                                    content: 'Nuevo Plan',
+                                                    variant: 'primary',
+                                                    size: 'small',
+                                                    fullWidth: false,
+                                                    loading: false,
+                                                    disabled: false,
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(32.0),
+                                                child: StreamBuilder<
                                                     List<MembershipsRecord>>(
                                                   stream:
                                                       queryMembershipsRecord(),
@@ -727,101 +669,137 @@ class _MembershipClassManagementWidgetState
                                                       );
                                                     }
                                                     List<MembershipsRecord>
-                                                        listViewMembershipsRecordList =
+                                                        columnMembershipsRecordList =
                                                         snapshot.data!;
 
-                                                    return Builder(
-                                                      builder: (context) {
-                                                        final item =
-                                                            listViewMembershipsRecordList
-                                                                .toList();
-
-                                                        return ListView.builder(
+                                                    return Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: List.generate(
+                                                          columnMembershipsRecordList
+                                                              .length,
+                                                          (columnIndex) {
+                                                        final columnMembershipsRecord =
+                                                            columnMembershipsRecordList[
+                                                                columnIndex];
+                                                        return Padding(
                                                           padding:
-                                                              EdgeInsets.zero,
-                                                          primary: false,
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              item.length,
-                                                          itemBuilder: (context,
-                                                              itemIndex) {
-                                                            final itemItem =
-                                                                item[itemIndex];
-                                                            return PlanCardWidget(
-                                                              key: Key(
-                                                                  'Key502_${itemIndex}_of_${item.length}'),
-                                                              name:
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                itemItem
-                                                                    .planName,
-                                                                'Estudiante',
-                                                              ),
-                                                              duration:
-                                                                  '${valueOrDefault<String>(
-                                                                itemItem
-                                                                    .durationMonths
-                                                                    .toString(),
-                                                                '1',
-                                                              )} Mes',
-                                                              price:
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                itemItem.price
-                                                                    .toString(),
-                                                                '14000',
-                                                              ),
-                                                              planId: itemItem
-                                                                  .reference.id,
-                                                            );
-                                                          },
+                                                              EdgeInsets.all(
+                                                                  2.0),
+                                                          child: Icon(
+                                                            Icons.inbox_rounded,
+                                                            size: 24.0,
+                                                          ),
                                                         );
-                                                      },
+                                                      }).divide(SizedBox(
+                                                          height: 16.0)),
                                                     );
                                                   },
                                                 ),
-                                              ].divide(SizedBox(height: 16.0)),
-                                            ),
-                                          if (_model.activeTab == 'Classes')
-                                            Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Upcoming Classes',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
+                                              ),
+
+                                              // ff_lite_listview_data:${memberships.all}
+                                              StreamBuilder<
+                                                  List<MembershipsRecord>>(
+                                                stream:
+                                                    queryMembershipsRecord(),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child:
+                                                            CircularProgressIndicator(),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<MembershipsRecord>
+                                                      listViewMembershipsRecordList =
+                                                      snapshot.data!;
+
+                                                  return Builder(
+                                                    builder: (context) {
+                                                      final item =
+                                                          listViewMembershipsRecordList
+                                                              .toList();
+
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount: item.length,
+                                                        itemBuilder: (context,
+                                                            itemIndex) {
+                                                          final itemItem =
+                                                              item[itemIndex];
+                                                          return PlanCardWidget(
+                                                            key: Key(
+                                                                'Key502_${itemIndex}_of_${item.length}'),
+                                                            name:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              itemItem.planName,
+                                                              'Estudiante',
                                                             ),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            letterSpacing: 0.0,
+                                                            duration:
+                                                                '${valueOrDefault<String>(
+                                                              itemItem
+                                                                  .durationMonths
+                                                                  .toString(),
+                                                              '1',
+                                                            )} Mes',
+                                                            price:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              itemItem.price
+                                                                  .toString(),
+                                                              '14000',
+                                                            ),
+                                                            planId: itemItem
+                                                                .reference.id,
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    'Upcoming Classes',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             fontStyle:
@@ -829,84 +807,47 @@ class _MembershipClassManagementWidgetState
                                                                         context)
                                                                     .titleMedium
                                                                     .fontStyle,
-                                                            lineHeight: 1.45,
                                                           ),
-                                                    ),
-                                                    ButtonWidget(
-                                                      key: Key(
-                                                          'Key506_${columnIndex}_of_${columnClassesRecordList.length}'),
-                                                      icon: Icon(
-                                                        Icons
-                                                            .event_available_rounded,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 24.0,
-                                                      ),
-                                                      iconPresent: true,
-                                                      iconEndPresent: false,
-                                                      content: 'Schedule',
-                                                      variant: 'outline',
-                                                      size: 'small',
-                                                      fullWidth: false,
-                                                      loading: false,
-                                                      disabled: false,
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(32.0),
-                                                  child: StreamBuilder<
-                                                      List<ClassesRecord>>(
-                                                    stream:
-                                                        queryClassesRecord(),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
-                                                            child:
-                                                                CircularProgressIndicator(),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<ClassesRecord>
-                                                          columnClassesRecordList =
-                                                          snapshot.data!;
-
-                                                      return Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: List.generate(
-                                                            columnClassesRecordList
-                                                                .length,
-                                                            (columnIndex) {
-                                                          final columnClassesRecord =
-                                                              columnClassesRecordList[
-                                                                  columnIndex];
-                                                          return Icon(
-                                                            Icons.inbox_rounded,
-                                                            size: 24.0,
-                                                          );
-                                                        }).divide(SizedBox(
-                                                            height: 16.0)),
-                                                      );
-                                                    },
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .fontStyle,
+                                                          lineHeight: 1.45,
+                                                        ),
                                                   ),
-                                                ),
-
-                                                // ff_lite_listview_data:${classes.all}
-                                                StreamBuilder<
+                                                  ButtonWidget(
+                                                    key: Key(
+                                                        'Key506_${columnIndex}_of_${columnClassesRecordList.length}'),
+                                                    icon: Icon(
+                                                      Icons
+                                                          .event_available_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    iconPresent: true,
+                                                    iconEndPresent: false,
+                                                    content: 'Schedule',
+                                                    variant: 'outline',
+                                                    size: 'small',
+                                                    fullWidth: false,
+                                                    loading: false,
+                                                    disabled: false,
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(32.0),
+                                                child: StreamBuilder<
                                                     List<ClassesRecord>>(
                                                   stream: queryClassesRecord(),
                                                   builder: (context, snapshot) {
@@ -922,53 +863,99 @@ class _MembershipClassManagementWidgetState
                                                       );
                                                     }
                                                     List<ClassesRecord>
-                                                        listViewClassesRecordList =
+                                                        columnClassesRecordList =
                                                         snapshot.data!;
 
-                                                    return Builder(
-                                                      builder: (context) {
-                                                        final item =
-                                                            listViewClassesRecordList
-                                                                .toList();
-
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          primary: false,
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              item.length,
-                                                          itemBuilder: (context,
-                                                              itemIndex) {
-                                                            final itemItem =
-                                                                item[itemIndex];
-                                                            return ClassItemWidget(
-                                                              key: Key(
-                                                                  'Key543_${itemIndex}_of_${item.length}'),
-                                                              icon: itemItem
-                                                                  .imageUrl,
-                                                              title: itemItem
-                                                                  .title,
-                                                              time: itemItem
-                                                                  .startTime,
-                                                              spots: itemItem
-                                                                  .availableSpots
-                                                                  .toString(),
-                                                              classId: itemItem
-                                                                  .reference.id,
-                                                              status: itemItem
-                                                                  .status,
-                                                            );
-                                                          },
+                                                    return Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: List.generate(
+                                                          columnClassesRecordList
+                                                              .length,
+                                                          (columnIndex) {
+                                                        final columnClassesRecord =
+                                                            columnClassesRecordList[
+                                                                columnIndex];
+                                                        return Icon(
+                                                          Icons.inbox_rounded,
+                                                          size: 24.0,
                                                         );
-                                                      },
+                                                      }).divide(SizedBox(
+                                                          height: 16.0)),
                                                     );
                                                   },
                                                 ),
-                                              ].divide(SizedBox(height: 16.0)),
-                                            ),
+                                              ),
+
+                                              // ff_lite_listview_data:${classes.all}
+                                              StreamBuilder<
+                                                  List<ClassesRecord>>(
+                                                stream: queryClassesRecord(),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child:
+                                                            CircularProgressIndicator(),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<ClassesRecord>
+                                                      listViewClassesRecordList =
+                                                      snapshot.data!;
+
+                                                  return Builder(
+                                                    builder: (context) {
+                                                      final item =
+                                                          listViewClassesRecordList
+                                                              .toList();
+
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount: item.length,
+                                                        itemBuilder: (context,
+                                                            itemIndex) {
+                                                          final itemItem =
+                                                              item[itemIndex];
+                                                          return ClassItemWidget(
+                                                            key: Key(
+                                                                'Key543_${itemIndex}_of_${item.length}'),
+                                                            icon: itemItem
+                                                                .imageUrl,
+                                                            title:
+                                                                itemItem.title,
+                                                            time: itemItem
+                                                                .startTime,
+                                                            spots: itemItem
+                                                                .availableSpots
+                                                                .toString(),
+                                                            classId: itemItem
+                                                                .reference.id,
+                                                            status:
+                                                                itemItem.status,
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
                                           Container(
                                             height: 24.0,
                                           ),

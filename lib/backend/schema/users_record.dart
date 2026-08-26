@@ -75,6 +75,11 @@ class UsersRecord extends FirestoreRecord {
   double get imc => _imc ?? 0.0;
   bool hasImc() => _imc != null;
 
+  // "photo_url_externa" field.
+  String? _photoUrlExterna;
+  String get photoUrlExterna => _photoUrlExterna ?? '';
+  bool hasPhotoUrlExterna() => _photoUrlExterna != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -88,6 +93,7 @@ class UsersRecord extends FirestoreRecord {
     _status = snapshotData['status'] as String?;
     _weight = castToType<double>(snapshotData['weight']);
     _imc = castToType<double>(snapshotData['imc']);
+    _photoUrlExterna = snapshotData['photo_url_externa'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -136,6 +142,7 @@ Map<String, dynamic> createUsersRecordData({
   String? status,
   double? weight,
   double? imc,
+  String? photoUrlExterna,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -151,6 +158,7 @@ Map<String, dynamic> createUsersRecordData({
       'status': status,
       'weight': weight,
       'imc': imc,
+      'photo_url_externa': photoUrlExterna,
     }.withoutNulls,
   );
 
@@ -173,7 +181,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.role == e2?.role &&
         e1?.status == e2?.status &&
         e1?.weight == e2?.weight &&
-        e1?.imc == e2?.imc;
+        e1?.imc == e2?.imc &&
+        e1?.photoUrlExterna == e2?.photoUrlExterna;
   }
 
   @override
@@ -189,7 +198,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.role,
         e?.status,
         e?.weight,
-        e?.imc
+        e?.imc,
+        e?.photoUrlExterna
       ]);
 
   @override

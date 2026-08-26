@@ -30,3 +30,5 @@ export '/pages/reports/reports_widget.dart' show ReportsWidget;
 export '/pages/user_management/user_management_widget.dart'
     show UserManagementWidget;
 export '/pages/edit_user/edit_user_widget.dart' show EditUserWidget;
+export '/pages/trainer_management/trainer_management_widget.dart'
+    show TrainerManagementWidget;

@@ -5,7 +5,6 @@ import '/components/text_field/text_field_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'class_booking_model.dart';
@@ -713,48 +712,34 @@ class _ClassBookingWidgetState extends State<ClassBookingWidget> {
                                               ),
                                             ),
                                           ),
-                                          if (functions
-                                                  .activeClasses(
-                                                      columnPaddingClassesRecordList
-                                                          .toList())
-                                                  .length !=
-                                              0)
-                                            Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                if (functions
-                                                        .activeClasses(
-                                                            columnPaddingClassesRecordList
-                                                                .toList())
-                                                        .length ==
-                                                    0)
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(32.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.inbox_rounded,
-                                                          size: 24.0,
-                                                        ),
-                                                        Text(
-                                                          'No tienes ninguna clase agendada',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
+                                          Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.all(32.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.inbox_rounded,
+                                                      size: 24.0,
+                                                    ),
+                                                    Text(
+                                                      'No tienes ninguna clase agendada',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .titleSmall
                                                               .override(
                                                                 font: GoogleFonts
@@ -783,13 +768,14 @@ class _ClassBookingWidgetState extends State<ClassBookingWidget> {
                                                                     .fontStyle,
                                                                 lineHeight: 1.5,
                                                               ),
-                                                        ),
-                                                        Text(
-                                                          'Las clases que agregues apareceran aquí',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
+                                                    ),
+                                                    Text(
+                                                      'Las clases que agregues apareceran aquí',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .bodySmall
                                                               .override(
                                                                 font:
@@ -819,147 +805,111 @@ class _ClassBookingWidgetState extends State<ClassBookingWidget> {
                                                                     .fontStyle,
                                                                 lineHeight: 1.4,
                                                               ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 16.0)),
                                                     ),
-                                                  ),
+                                                  ].divide(
+                                                      SizedBox(height: 16.0)),
+                                                ),
+                                              ),
 
-                                                // ff_lite_listview_data:${active_classes}
-                                                if ((functions
-                                                            .activeClasses(
-                                                                columnPaddingClassesRecordList
-                                                                    .toList())
-                                                            .length ==
-                                                        0) ==
-                                                    false)
-                                                  StreamBuilder<
-                                                      List<ClassesRecord>>(
-                                                    stream:
-                                                        queryClassesRecord(),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
-                                                            child:
-                                                                CircularProgressIndicator(),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<ClassesRecord>
-                                                          listViewClassesRecordList =
-                                                          snapshot.data!;
+                                              // ff_lite_listview_data:${active_classes}
+                                              StreamBuilder<
+                                                  List<ClassesRecord>>(
+                                                stream: queryClassesRecord(),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child:
+                                                            CircularProgressIndicator(),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<ClassesRecord>
+                                                      listViewClassesRecordList =
+                                                      snapshot.data!;
 
-                                                      return Builder(
-                                                        builder: (context) {
-                                                          final item =
-                                                              listViewClassesRecordList
-                                                                  .toList();
+                                                  return Builder(
+                                                    builder: (context) {
+                                                      final item =
+                                                          listViewClassesRecordList
+                                                              .toList();
 
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            primary: false,
-                                                            shrinkWrap: true,
-                                                            scrollDirection:
-                                                                Axis.vertical,
-                                                            itemCount:
-                                                                item.length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                    itemIndex) {
-                                                              final itemItem =
-                                                                  item[
-                                                                      itemIndex];
-                                                              return ClassReservationCardWidget(
-                                                                key: Key(
-                                                                    'Key198_${itemIndex}_of_${item.length}'),
-                                                                iconDesc: itemItem
-                                                                    .imageUrl,
-                                                                title:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  itemItem
-                                                                      .title,
-                                                                  'Multifuncionales',
-                                                                ),
-                                                                time:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  itemItem
-                                                                      .startTime,
-                                                                  '9:00 a.m',
-                                                                ),
-                                                                spots:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  itemItem
-                                                                      .availableSpots
-                                                                      .toString(),
-                                                                  '3',
-                                                                ),
-                                                                available: itemItem
-                                                                        .availableSpots >
-                                                                    0,
-                                                              );
-                                                            },
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount: item.length,
+                                                        itemBuilder: (context,
+                                                            itemIndex) {
+                                                          final itemItem =
+                                                              item[itemIndex];
+                                                          return ClassReservationCardWidget(
+                                                            key: Key(
+                                                                'Key198_${itemIndex}_of_${item.length}'),
+                                                            iconDesc: itemItem
+                                                                .imageUrl,
+                                                            title:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              itemItem.title,
+                                                              'Multifuncionales',
+                                                            ),
+                                                            time:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              itemItem
+                                                                  .startTime,
+                                                              '9:00 a.m',
+                                                            ),
+                                                            spots:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              itemItem
+                                                                  .availableSpots
+                                                                  .toString(),
+                                                              '3',
+                                                            ),
+                                                            available: itemItem
+                                                                    .availableSpots >
+                                                                0,
                                                           );
                                                         },
                                                       );
                                                     },
-                                                  ),
-                                              ].divide(SizedBox(height: 16.0)),
-                                            ),
-                                          if (functions
-                                                  .activeClasses(
-                                                      columnPaddingClassesRecordList
-                                                          .toList())
-                                                  .length ==
-                                              0)
-                                            Padding(
-                                              padding: EdgeInsets.all(24.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.event_busy_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 48.0,
-                                                  ),
-                                                  Text(
-                                                    'No hay clases disponibles para hoy',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
+                                                  );
+                                                },
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(24.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.event_busy_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 48.0,
+                                                ),
+                                                Text(
+                                                  'No hay clases disponibles para hoy',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        font: GoogleFonts.inter(
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -970,13 +920,28 @@ class _ClassBookingWidgetState extends State<ClassBookingWidget> {
                                                                       context)
                                                                   .bodyLarge
                                                                   .fontStyle,
-                                                          lineHeight: 1.6,
                                                         ),
-                                                  ),
-                                                ].divide(
-                                                    SizedBox(height: 16.0)),
-                                              ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLarge
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLarge
+                                                                .fontStyle,
+                                                        lineHeight: 1.6,
+                                                      ),
+                                                ),
+                                              ].divide(SizedBox(height: 16.0)),
                                             ),
+                                          ),
                                           Container(
                                             height: 40.0,
                                           ),

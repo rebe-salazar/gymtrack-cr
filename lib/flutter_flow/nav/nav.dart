@@ -186,6 +186,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['users'],
             ),
           ),
+        ),
+        FFRoute(
+          name: TrainerManagementWidget.routeName,
+          path: TrainerManagementWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => TrainerManagementWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
