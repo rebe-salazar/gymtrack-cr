@@ -216,7 +216,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.safePop();
+                                          context.pushNamed(
+                                              LoginPageWidget.routeName);
                                         },
                                         child: Icon(
                                           Icons.logout,
@@ -360,19 +361,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                 ),
                                 Expanded(
                                   flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.quickActionModel2,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: QuickActionWidget(
-                                      tapAction:
-                                          'navigate(membership_class_management)',
-                                      icon: Icon(
-                                        Icons.payments_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          ClassManagementWidget.routeName);
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.quickActionModel2,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: QuickActionWidget(
+                                        tapAction:
+                                            'navigate(membership_class_management)',
+                                        icon: Icon(
+                                          Icons.class_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        label: 'Clases',
                                       ),
-                                      label: 'Membresías',
                                     ),
                                   ),
                                 ),
@@ -413,36 +424,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                               children: [
                                 Expanded(
                                   flex: 1,
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                          ClassManagementWidget.routeName);
-                                    },
-                                    child: wrapWithModel(
-                                      model: _model.quickActionModel4,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: QuickActionWidget(
-                                        tapAction:
-                                            'navigate(membership_class_management)',
-                                        icon: Icon(
-                                          Icons.class_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 24.0,
-                                        ),
-                                        label: 'Clases',
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
                                   child: wrapWithModel(
-                                    model: _model.quickActionModel5,
+                                    model: _model.quickActionModel4,
                                     updateCallback: () => safeSetState(() {}),
                                     child: QuickActionWidget(
                                       tapAction: 'toast(\'Promociones\')',
@@ -453,6 +436,24 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                         size: 24.0,
                                       ),
                                       label: 'Promociones',
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: wrapWithModel(
+                                    model: _model.quickActionModel5,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: QuickActionWidget(
+                                      tapAction:
+                                          'navigate(membership_class_management)',
+                                      icon: Icon(
+                                        Icons.payments_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 24.0,
+                                      ),
+                                      label: 'Membresías',
                                     ),
                                   ),
                                 ),

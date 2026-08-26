@@ -869,7 +869,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 return;
                                               }
 
-                                              await queryUsersRecordOnce(
+                                              await Future.delayed(
+                                                Duration(
+                                                  milliseconds: 1000,
+                                                ),
+                                              );
+                                              _model.usuarioConsultado =
+                                                  await queryUsersRecordOnce(
                                                 queryBuilder: (usersRecord) =>
                                                     usersRecord.where(
                                                   'uid',
@@ -877,111 +883,96 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 ),
                                                 singleRecord: true,
                                               ).then((s) => s.firstOrNull);
-                                              if (valueOrDefault(
-                                                      currentUserDocument
-                                                          ?.status,
-                                                      '') ==
-                                                  'Activo') {
-                                                if (valueOrDefault(
-                                                        currentUserDocument
-                                                            ?.role,
-                                                        '') ==
-                                                    'Cliente') {
-                                                  context.pushNamedAuth(
-                                                      ClientDashboardWidget
-                                                          .routeName,
-                                                      context.mounted);
-                                                } else {
-                                                  if (valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.role,
-                                                          '') ==
-                                                      'Administrador') {
-                                                    context.pushNamedAuth(
-                                                        AdminDashboardWidget
+                                              if (_model.usuarioConsultado
+                                                      ?.reference !=
+                                                  null) {
+                                                if (_model.usuarioConsultado
+                                                        ?.status ==
+                                                    'Activo') {
+                                                  if (_model.usuarioConsultado
+                                                          ?.role ==
+                                                      'Cliente') {
+                                                    context.goNamedAuth(
+                                                        ClientDashboardWidget
                                                             .routeName,
                                                         context.mounted);
                                                   } else {
-                                                    if (valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.role,
-                                                            '') ==
-                                                        'Entrenador') {
-                                                      context.pushNamedAuth(
-                                                          TrainerDashboardWidget
+                                                    if (_model.usuarioConsultado
+                                                            ?.role ==
+                                                        'Administrador') {
+                                                      context.goNamedAuth(
+                                                          AdminDashboardWidget
                                                               .routeName,
                                                           context.mounted);
                                                     } else {
-                                                      if (valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.role,
-                                                              '') ==
-                                                          'Recepcionista') {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'El panel de Recepcionista aún no está disponible.',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                          ),
-                                                        );
-                                                        GoRouter.of(context)
-                                                            .prepareAuthEvent();
-                                                        await authManager
-                                                            .signOut();
-                                                        GoRouter.of(context)
-                                                            .clearRedirectLocation();
+                                                      if (_model
+                                                              .usuarioConsultado
+                                                              ?.role ==
+                                                          'Entrenador') {
+                                                        context.goNamedAuth(
+                                                            TrainerDashboardWidget
+                                                                .routeName,
+                                                            context.mounted);
                                                       } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'No se encontró un rol válido para esta cuenta.',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
+                                                        if (_model
+                                                                .usuarioConsultado
+                                                                ?.role ==
+                                                            'Recepcionista') {
+                                                          context.pushNamedAuth(
+                                                              ClientDashboardWidget
+                                                                  .routeName,
+                                                              context.mounted);
+                                                        } else {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Rol de usuario no reconocido.',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                               ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2400),
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xFFC5222B),
                                                             ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                          ),
-                                                        );
-                                                        GoRouter.of(context)
-                                                            .prepareAuthEvent();
-                                                        await authManager
-                                                            .signOut();
-                                                        GoRouter.of(context)
-                                                            .clearRedirectLocation();
+                                                          );
+                                                        }
                                                       }
                                                     }
                                                   }
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Debe ingresar un usuario activo',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          Color(0xFFC52227),
+                                                    ),
+                                                  );
                                                 }
                                               } else {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'Su cuenta está inactiva. Contacte al administrador.',
+                                                      'No se encontró el perfil del usuario.',
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -997,12 +988,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             .secondary,
                                                   ),
                                                 );
-                                                GoRouter.of(context)
-                                                    .prepareAuthEvent();
-                                                await authManager.signOut();
-                                                GoRouter.of(context)
-                                                    .clearRedirectLocation();
                                               }
+
+                                              safeSetState(() {});
                                             },
                                             child: wrapWithModel(
                                               model: _model.buttonModel,
