@@ -5,6 +5,11 @@ import 'edit_user_widget.dart' show EditUserWidget;
 import 'package:flutter/material.dart';
 
 class EditUserModel extends FlutterFlowModel<EditUserWidget> {
+  ///  Local state fields for this page.
+
+  String? fotoEditada =
+      'https://cdn.pixabay.com/photo/2024/02/22/05/40/natural-scenery-8589166_1280.jpg';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

@@ -142,6 +142,11 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
+                              Icon(
+                                Icons.account_circle,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 100.0,
+                              ),
                               Padding(
                                 padding: EdgeInsets.all(20.0),
                                 child: Container(
@@ -962,9 +967,7 @@ class _EditUserWidgetState extends State<EditUserWidget> {
                                             milliseconds: 1500,
                                           ),
                                         );
-
-                                        context.pushNamed(
-                                            UserManagementWidget.routeName);
+                                        context.safePop();
                                       },
                                       text: 'Guardar Cambios',
                                       options: FFButtonOptions(

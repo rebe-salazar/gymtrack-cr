@@ -217,8 +217,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed(
-                                              LoginPageWidget.routeName);
+                                          context.safePop();
                                         },
                                         child: Icon(
                                           Icons.logout,
@@ -557,19 +556,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                 ),
                                 Expanded(
                                   flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.quickActionModel3,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: QuickActionWidget(
-                                      tapAction:
-                                          'toast(\'Gestión de entrenadores\')',
-                                      icon: Icon(
-                                        Icons.badge_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          TrainerManagementWidget.routeName);
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.quickActionModel3,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: QuickActionWidget(
+                                        tapAction:
+                                            'toast(\'Gestión de entrenadores\')',
+                                        icon: Icon(
+                                          Icons.badge_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        label: 'Entrenadores',
                                       ),
-                                      label: 'Entrenadores',
                                     ),
                                   ),
                                 ),

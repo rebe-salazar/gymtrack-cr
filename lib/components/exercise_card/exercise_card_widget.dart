@@ -220,40 +220,35 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                             ),
                           ].divide(SizedBox(width: 16.0)),
                         ),
-                        if (valueOrDefault<bool>(
-                          widget.notes != '' ? true : false,
-                          false,
-                        ))
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 4.0, 0.0),
-                              child: Container(
-                                child: Text(
-                                  widget.notes,
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        font: GoogleFonts.inter(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontWeight,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
+                        Container(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 4.0, 0.0),
+                            child: Container(
+                              child: Text(
+                                widget.notes,
+                                style: FlutterFlowTheme.of(context)
+                                    .labelSmall
+                                    .override(
+                                      font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .fontWeight,
                                         fontStyle: FontStyle.italic,
-                                        lineHeight: 1.2,
                                       ),
-                                ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .fontWeight,
+                                      fontStyle: FontStyle.italic,
+                                      lineHeight: 1.2,
+                                    ),
                               ),
                             ),
                           ),
+                        ),
                       ].divide(SizedBox(height: 4.0)),
                     ),
                   ),
