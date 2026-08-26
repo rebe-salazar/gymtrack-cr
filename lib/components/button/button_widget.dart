@@ -317,11 +317,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (valueOrDefault<bool>(
-                      widget.iconPresent,
-                      false,
-                    ))
-                      widget.icon!,
+                    widget.icon!,
                     Text(
                       valueOrDefault<String>(
                         widget.content,
@@ -382,64 +378,51 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                           ),
                       overflow: TextOverflow.clip,
                     ),
-                    if (valueOrDefault<bool>(
-                      widget.iconEndPresent,
-                      false,
-                    ))
-                      widget.iconEnd!,
+                    widget.iconEnd!,
                   ].divide(SizedBox(width: 8.0)),
                 ),
               ),
             ),
-            if (valueOrDefault<bool>(
-              valueOrDefault<bool>(
-                widget.loading,
-                false,
-              )
-                  ? true
-                  : false,
-              false,
-            ))
-              CircularPercentIndicator(
-                percent: 0.0,
-                radius: 7.0,
-                lineWidth: 2.0,
-                animation: true,
-                animateFromLastPercent: true,
-                progressColor: valueOrDefault<Color>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget.variant,
-                          'secondary',
-                        ) ==
-                        'secondary') {
-                      return FlutterFlowTheme.of(context).onSecondary;
-                    } else if (valueOrDefault<String>(
-                          widget.variant,
-                          'secondary',
-                        ) ==
-                        'outline') {
-                      return FlutterFlowTheme.of(context).primaryText;
-                    } else if (valueOrDefault<String>(
-                          widget.variant,
-                          'secondary',
-                        ) ==
-                        'ghost') {
-                      return FlutterFlowTheme.of(context).primary;
-                    } else if (valueOrDefault<String>(
-                          widget.variant,
-                          'secondary',
-                        ) ==
-                        'destructive') {
-                      return FlutterFlowTheme.of(context).onError;
-                    } else {
-                      return FlutterFlowTheme.of(context).onPrimary;
-                    }
-                  }(),
-                  FlutterFlowTheme.of(context).onSecondary,
-                ),
-                backgroundColor: FlutterFlowTheme.of(context).alternate,
+            CircularPercentIndicator(
+              percent: 0.0,
+              radius: 7.0,
+              lineWidth: 2.0,
+              animation: true,
+              animateFromLastPercent: true,
+              progressColor: valueOrDefault<Color>(
+                () {
+                  if (valueOrDefault<String>(
+                        widget.variant,
+                        'secondary',
+                      ) ==
+                      'secondary') {
+                    return FlutterFlowTheme.of(context).onSecondary;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'secondary',
+                      ) ==
+                      'outline') {
+                    return FlutterFlowTheme.of(context).primaryText;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'secondary',
+                      ) ==
+                      'ghost') {
+                    return FlutterFlowTheme.of(context).primary;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'secondary',
+                      ) ==
+                      'destructive') {
+                    return FlutterFlowTheme.of(context).onError;
+                  } else {
+                    return FlutterFlowTheme.of(context).onPrimary;
+                  }
+                }(),
+                FlutterFlowTheme.of(context).onSecondary,
               ),
+              backgroundColor: FlutterFlowTheme.of(context).alternate,
+            ),
           ],
         ),
       ),

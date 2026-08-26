@@ -50,6 +50,31 @@ class ClassesRecord extends FirestoreRecord {
   String get imageUrl => _imageUrl ?? '';
   bool hasImageUrl() => _imageUrl != null;
 
+  // "category" field.
+  String? _category;
+  String get category => _category ?? '';
+  bool hasCategory() => _category != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
+
+  // "instructorRef" field.
+  DocumentReference? _instructorRef;
+  DocumentReference? get instructorRef => _instructorRef;
+  bool hasInstructorRef() => _instructorRef != null;
+
+  // "startDayTime" field.
+  DateTime? _startDayTime;
+  DateTime? get startDayTime => _startDayTime;
+  bool hasStartDayTime() => _startDayTime != null;
+
+  // "durationMinutes" field.
+  int? _durationMinutes;
+  int get durationMinutes => _durationMinutes ?? 0;
+  bool hasDurationMinutes() => _durationMinutes != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _instructorId = snapshotData['instructorId'] as String?;
@@ -58,6 +83,11 @@ class ClassesRecord extends FirestoreRecord {
     _availableSpots = castToType<int>(snapshotData['availableSpots']);
     _status = snapshotData['status'] as String?;
     _imageUrl = snapshotData['imageUrl'] as String?;
+    _category = snapshotData['category'] as String?;
+    _description = snapshotData['description'] as String?;
+    _instructorRef = snapshotData['instructorRef'] as DocumentReference?;
+    _startDayTime = snapshotData['startDayTime'] as DateTime?;
+    _durationMinutes = castToType<int>(snapshotData['durationMinutes']);
   }
 
   static CollectionReference get collection =>
@@ -102,6 +132,11 @@ Map<String, dynamic> createClassesRecordData({
   int? availableSpots,
   String? status,
   String? imageUrl,
+  String? category,
+  String? description,
+  DocumentReference? instructorRef,
+  DateTime? startDayTime,
+  int? durationMinutes,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +147,11 @@ Map<String, dynamic> createClassesRecordData({
       'availableSpots': availableSpots,
       'status': status,
       'imageUrl': imageUrl,
+      'category': category,
+      'description': description,
+      'instructorRef': instructorRef,
+      'startDayTime': startDayTime,
+      'durationMinutes': durationMinutes,
     }.withoutNulls,
   );
 
@@ -129,7 +169,12 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e1?.totalSpots == e2?.totalSpots &&
         e1?.availableSpots == e2?.availableSpots &&
         e1?.status == e2?.status &&
-        e1?.imageUrl == e2?.imageUrl;
+        e1?.imageUrl == e2?.imageUrl &&
+        e1?.category == e2?.category &&
+        e1?.description == e2?.description &&
+        e1?.instructorRef == e2?.instructorRef &&
+        e1?.startDayTime == e2?.startDayTime &&
+        e1?.durationMinutes == e2?.durationMinutes;
   }
 
   @override
@@ -140,7 +185,12 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e?.totalSpots,
         e?.availableSpots,
         e?.status,
-        e?.imageUrl
+        e?.imageUrl,
+        e?.category,
+        e?.description,
+        e?.instructorRef,
+        e?.startDayTime,
+        e?.durationMinutes
       ]);
 
   @override

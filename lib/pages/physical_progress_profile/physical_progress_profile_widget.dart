@@ -952,27 +952,12 @@ class _PhysicalProgressProfileWidgetState
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    if (_model.error != null &&
-                                        _model.error != '')
-                                      Text(
-                                        _model.error!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              letterSpacing: 0.0,
+                                    Text(
+                                      _model.error!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            font: GoogleFonts.inter(
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -981,9 +966,21 @@ class _PhysicalProgressProfileWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
                                                       .fontStyle,
-                                              lineHeight: 1.2,
                                             ),
-                                      ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .fontStyle,
+                                            lineHeight: 1.2,
+                                          ),
+                                    ),
                                     wrapWithModel(
                                       model: _model.buttonModel1,
                                       updateCallback: () => safeSetState(() {}),

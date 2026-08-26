@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/components/quick_action/quick_action_widget.dart';
-import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -217,8 +216,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed(
-                                              LoginPageWidget.routeName);
+                                          context.safePop();
                                         },
                                         child: Icon(
                                           Icons.logout,
@@ -291,183 +289,6 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                           ].divide(SizedBox(height: 24.0)),
                         ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Rendimiento Semanal',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    font: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
-                                    lineHeight: 1.45,
-                                  ),
-                            ),
-                            Text(
-                              'Ver reporte',
-                              style: FlutterFlowTheme.of(context)
-                                  .labelLarge
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .fontStyle,
-                                    lineHeight: 1.4,
-                                  ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          height: 220.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(24.0),
-                            child: Container(
-                              child: Container(
-                                height: 172.0,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Container(
-                                        height: 180.0,
-                                        child: FlutterFlowBarChart(
-                                          barData: [
-                                            FFBarChartData(
-                                              yData: ([
-                                                45.0,
-                                                60.0,
-                                                35.0,
-                                                80.0,
-                                                55.0,
-                                                90.0,
-                                                70.0
-                                              ]),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            )
-                                          ],
-                                          xLabels: ([
-                                            'L',
-                                            'M',
-                                            'M',
-                                            'J',
-                                            'V',
-                                            'S',
-                                            'D'
-                                          ]),
-                                          barWidth: 16.0,
-                                          barBorderRadius:
-                                              BorderRadius.circular(4.0),
-                                          groupSpace: 12.0,
-                                          alignment:
-                                              BarChartAlignment.spaceEvenly,
-                                          chartStylingInfo: ChartStylingInfo(
-                                            backgroundColor: Colors.transparent,
-                                            showGrid: true,
-                                            showBorder: false,
-                                          ),
-                                          axisBounds: AxisBounds(
-                                            minY: 0.0,
-                                            maxX: 6.0,
-                                            maxY: 108.0,
-                                          ),
-                                          xAxisLabelInfo: AxisLabelInfo(
-                                            showLabels: true,
-                                            labelTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font: GoogleFonts.inter(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      fontSize: 10.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .fontStyle,
-                                                      lineHeight: 1.0,
-                                                    ),
-                                            reservedSize: 20.0,
-                                          ),
-                                          yAxisLabelInfo: AxisLabelInfo(
-                                            reservedSize: 0.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ].divide(SizedBox(height: 16.0)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ].divide(SizedBox(height: 16.0)),
                     ),
                   ),
                   Padding(
@@ -557,19 +378,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                 ),
                                 Expanded(
                                   flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.quickActionModel3,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: QuickActionWidget(
-                                      tapAction:
-                                          'toast(\'Gestión de entrenadores\')',
-                                      icon: Icon(
-                                        Icons.badge_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          TrainerManagementWidget.routeName);
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.quickActionModel3,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: QuickActionWidget(
+                                        tapAction:
+                                            'toast(\'Gestión de entrenadores\')',
+                                        icon: Icon(
+                                          Icons.badge_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        label: 'Entrenadores',
                                       ),
-                                      label: 'Entrenadores',
                                     ),
                                   ),
                                 ),
@@ -582,19 +413,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                               children: [
                                 Expanded(
                                   flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.quickActionModel4,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: QuickActionWidget(
-                                      tapAction:
-                                          'navigate(membership_class_management)',
-                                      icon: Icon(
-                                        Icons.class_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          ClassManagementWidget.routeName);
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.quickActionModel4,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: QuickActionWidget(
+                                        tapAction:
+                                            'navigate(membership_class_management)',
+                                        icon: Icon(
+                                          Icons.class_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        label: 'Clases',
                                       ),
-                                      label: 'Clases',
                                     ),
                                   ),
                                 ),
